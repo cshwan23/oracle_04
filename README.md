@@ -4,32 +4,32 @@ oracle -table 연습
 
 
 
-*테이블 만드는 방법
+# 테이블 만드는 방법
 
 create + table + 테이블명 (    칼럼명 + 자료형 + 제약조건   );
 
-##숫자자료형
+# 숫자자료형
 
 number( 2 ) 
 : 숫자 자료형 정수 2자리 값까지 저장 된다는 뜻 (0~99)
 
 
-##문자자료형
+# 문자자료형
 varchar2(20)
 : 문자자료형 (한글 10 영문20) 이 저장 되도록 설정
 
 
-##제약조건(비지마 ! )
+# 제약조건(비지마 ! )
 not null
 : 비지마!
 
-##제약조건(중복되지마 ! )
+# 제약조건(중복되지마 ! )
 
-##unique
+unique
 : 중복되지마라.
 
 
-##PK설정(비지말고 중복되지말고 FK가 참조할수있는 제약조건)
+# PK설정(비지말고 중복되지말고 FK가 참조할수있는 제약조건)
 
 primary key ( 칼럼명)
 : 해당 칼럼명은 primary key 로 제약 조건 설정.
@@ -38,7 +38,7 @@ primary key ( 칼럼명)
 
 
 
-##테이블에 행단위로 데이터 집어넣기
+# 테이블에 행단위로 데이터 집어넣기
 
 insert into 테이블명 ( 칼럼명 ) values ( 데이터 );
 
@@ -49,7 +49,7 @@ insert into 테이블명 ( 칼럼명 ) values ( 데이터 );
 
 
 
-##테이블에 모든 행 보여주기
+# 테이블에 모든 행 보여주기
 
 select * from 테이블명; 
 
@@ -57,7 +57,7 @@ select * from 테이블명;
 
 
 
-##여태까지 한 작업 인정하기
+# 여태까지 한 작업 인정하기
 
 commit;
 
@@ -66,7 +66,7 @@ commit;
 
 
 
-##입력한 값이 없으면 디폴트로 0집어넣기
+# 입력한 값이 없으면 디폴트로 0집어넣기
 
 salary number(10) default 0
 
@@ -76,7 +76,7 @@ salary number(10) default 0
 
 
 
-##입력된 날짜 값이 없다면 디폴트로 현재날짜 집어넣기 
+# 입력된 날짜 값이 없다면 디폴트로 현재날짜 집어넣기 
 
 hire_date   date   default   sysdate
 
@@ -87,7 +87,7 @@ hire_date   date   default   sysdate
 
 
 
-##FK설정하고 PK참조하기
+# FK설정하고 PK참조하기
 
 foreign key(dep_no)   references  dept(dep_no)
 
@@ -96,7 +96,7 @@ foreign key(dep_no)   references  dept(dep_no)
 
 
 
-##같은 테이블에 있는 PK를 참조하려고 할 때 FK 설정하기
+# 같은 테이블에 있는 PK를 참조하려고 할 때 FK 설정하기
 
 constraint  employee_mgr_emp_no_fk  foreign key( mgr_emp_no )  references  employee ( emp_no )
 
@@ -105,14 +105,14 @@ constraint  employee_mgr_emp_no_fk  foreign key( mgr_emp_no )  references  emplo
 : constraint 무력화 하기위한 새로운 이름 + foreign key(현재 테이블의 fk 칼럼명 )+ references 현재 테이블명(pk칼럼명)
 
 
-##해당 테이블을 삭제하기﻿
+# 해당 테이블을 삭제하기﻿
 
 drop table 테이블명;
 
 : 해당 테이블명의 테이블 내용 다 지우기
 
 
-##같은 테이블에 있는 PK를 참조할 제약조건을 잠시 끄기﻿
+# 같은 테이블에 있는 PK를 참조할 제약조건을 잠시 끄기﻿
 
  alter table  employee  disable constraint  employee_mgr_emp_no_fk ; 
  
@@ -122,7 +122,7 @@ drop table 테이블명;
 : employee_mgr_emp_no_fk 라는 이름의 제약조건 끄기.
 
 
-##같은 테이블에 있는 PK를 참조할 제약조건을 켜기﻿
+# 같은 테이블에 있는 PK를 참조할 제약조건을 켜기﻿
 
  alter table employee enable constraint employee_mgr_emp_no_fk ; 
  
